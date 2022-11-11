@@ -1,38 +1,134 @@
+/*SETUP*/
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-image: url('https://thumbs.dreamstime.com/b/beautiful-blue-sky-white-cloud-background-shape-independent-elements-nature-wonderful-fluffy-clouds-light-226177272.jpg');
+  background-size: cover;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-family: 'Helvetica';
+  height: 650px;
+  width: 500px;
+  overflow: scroll;
+  background-color: #e81e61;
   color: white;
+  border-radius: 18px;
+  box-shadow: 10px 5px 50px black;
 }
 
-.App-link {
-  color: #61dafb;
+
+#header {
+  font-size: 50px;
+  background-color: transparent;
+  max-height: 120px;
+  text-shadow: 3px 3px black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app_section {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 9px;
+  background-color: #1e61e8;
+  height: 200px;
+  border-radius: 20px;
+}
+
+#sce_calc {
+  height: 200px;
+  width: 430px;
+}
+
+#sce_calc_content {
+  height: 185px;
+  margin-left: 15px;
+}
+
+#sce_calc_content > div {
+  margin: 3px;
+}
+
+.calc_section {
+  margin: 20px;
+  box-shadow: 2px 2px 5px black;
+
+}
+
+.calc_content {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: 400px;
+}
+
+.calc_content > div {
+  margin: 8px;
+}
+
+.calc_header {
+  margin-top: -18px;
+  margin-left: 15px;
+  position: absolute;
+  text-shadow: 2px 2px #000000;
+
+}
+
+.fields_section {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 100px;
+  width: inherit;
+}
+
+.field {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 350px;
+  margin: 3px;
+}
+
+.field_input {
+  width: 30px;
+
+}
+
+#top_results {
+  width: 350px;
+}
+
+.results {
+  font-size: 17px;
+  background-color: white;
+  color: #1e61e8;
+  padding: 4px;
+  width: 380px;
+}
+
+#conversion_slider {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#conversion_rate_slider {
+  width: 200px;
+}
+
+
+.slider {
+  cursor: pointer;
 }
