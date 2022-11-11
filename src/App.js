@@ -7,8 +7,13 @@ export const varz = {
   'anonymous_customers' : 0,
   'ltv_per_customer' : 0,
   'email_sms_subscribers' : 0,
-  'swapt_conversion_rate' : 0
+  'swapt_conversion_rate' : 0,
+  'week' : 7,
+  'month': 30,
+  'year' : 365
 };
+
+var current_range = 'month';
 
 
 function App() {
@@ -46,8 +51,12 @@ function App() {
             Potential New Net Revenue: <br />
             Per day: ${(varz['customers_per_day'] * varz['anonymous_customers'] / 100 * varz['ltv_per_customer']).toLocaleString()}
             <br />
-            Per month:
-            ${(varz['anonymous_customers'] * varz['customers_per_day'] / 100 * varz['ltv_per_customer'] * 30).toLocaleString()}
+            Per  <select className="time_range" onChange={switchRange} defaultValue="month">
+                    <option value="week">week</option>
+                    <option value="month">month</option>
+                    <option value="year">year</option>
+                  </select>:
+            ${(varz['anonymous_customers'] * varz['customers_per_day'] / 100 * varz['ltv_per_customer'] * varz[current_range]).toLocaleString()}
           </div>
         </div>
       </div>
@@ -72,8 +81,8 @@ function App() {
             Per day:
             ${(varz['customers_per_day'] * varz['anonymous_customers'] / 100 * varz['swapt_conversion_rate'] / 100 * varz['ltv_per_customer']).toLocaleString()}
             <br/>
-            Per month:
-            ${(varz['anonymous_customers'] * varz['customers_per_day'] / 100 * varz['swapt_conversion_rate'] / 100 * varz['ltv_per_customer'] * 30).toLocaleString()}
+            Per {current_range}:
+            ${(varz['anonymous_customers'] * varz['customers_per_day'] / 100 * varz['swapt_conversion_rate'] / 100 * varz['ltv_per_customer'] * varz[current_range]).toLocaleString()}
             <br/>
             Plus {Math.ceil(varz['email_sms_subscribers'] * varz['swapt_conversion_rate'] / 100) + " Additional Email & SMS Subscribers!"}<br/>
 
@@ -86,6 +95,7 @@ function App() {
   )
 }
 
+
 const formUpdate = (e) => {
   let index = e.target.dataset.in
   let x = parseInt(e.target.value);
@@ -93,6 +103,12 @@ const formUpdate = (e) => {
     x = 0;
   }
   varz[index] = x
+  render();
+}
+
+const switchRange = (e) => {
+  let y = e.target.value;
+  current_range = y;
   render();
 }
 
